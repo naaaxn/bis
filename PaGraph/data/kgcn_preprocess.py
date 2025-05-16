@@ -8,7 +8,7 @@ import os
 import sys
 import argparse
 
-#这个地方加入边的信息
+#杩欎釜鍦版柟鍔犲叆杈圭殑淇℃伅
 def pp2adj(filepath, is_direct=True, delimiter='\t',
            outfile=None):
   """
@@ -41,9 +41,9 @@ def pp2adj(filepath, is_direct=True, delimiter='\t',
     src_node, dst_node = np.concatenate((src_node, dst_node)), \
                          np.concatenate((dst_node, src_node))
   # edge_weight = np.ones(enum, dtype=np.int32)
-  #改变边的权重
+  #鏀瑰彉杈圭殑鏉冮噸
   edge_weight = np.genfromtxt(filepath, delimiter='\t', usecols=1, dtype=int)
-  #无向图边要复制两份
+  #鏃犲悜鍥捐竟瑕佸鍒朵袱浠�
   edge_weight_copy = edge_weight.copy()
   # Concatenate the original edge_weight array with its copy
   edge_weight = np.concatenate((edge_weight, edge_weight_copy))
@@ -114,7 +114,7 @@ def split_dataset(vnum, outdir=None):
   """
   nids = np.arange(vnum)
   np.random.shuffle(nids)
-  train_len = int(vnum * 0.65) # kg需要划分训练集吗
+  train_len = int(vnum * 0.65) # kg闇€瑕佸垝鍒嗚缁冮泦鍚�
   val_len = int(vnum * 0.1)
   test_len = vnum - train_len - val_len
   # train mask
